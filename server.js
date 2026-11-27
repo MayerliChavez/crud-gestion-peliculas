@@ -20,7 +20,6 @@ const PUBLIC_FILES = new Map([
   ['/index.html', 'index.html'],
   ['/app.js', 'app.js'],
   ['/styles.css', 'styles.css'],
-  ['/light-theme.css', 'light-theme.css'],
   ['/comb.svg', 'comb.svg'],
 ]);
 

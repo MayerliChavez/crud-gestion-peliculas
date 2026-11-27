@@ -8,9 +8,9 @@ Aplicación web sencilla para administrar películas y enviar cada cambio al EPN
 app.js       Lógica de la interfaz y envío de eventos
 index.html   Página del CRUD
 styles.css   Estilos
-light-theme.css Paleta clara
 server.js    Servidor estático y proxy HTTP al Event Manager
 comb.svg     Ícono
+test/        Pruebas básicas del servidor y el proxy
 ```
 
 La lista se reconstruye en memoria usando el historial `GET /events` del gestor. La aplicación hace proxy de `/api/*` hacia el mismo path sin el prefijo `/api`; por ejemplo, `/api/events` se envía a `POST /events`. Así, navegador y API local comparten el puerto `8082` y no requieren CORS.
