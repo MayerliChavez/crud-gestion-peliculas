@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f6fa" />
+    <title>CineLibro · Gestión de películas</title>
+    <link rel="icon" href="/comb.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/light-theme.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="CineLibro, inicio">
+        <span class="brand-icon">▶</span>
+        <span>CineLibro<small>CATÁLOGO DE PELÍCULAS</small></span>
+      </a>
+      <div class="connection"><span id="connectionDot" class="dot"></span><span id="connectionText">Conectando con EPN Event Manager…</span></div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div><p class="eyebrow">TU COLECCIÓN PERSONAL</p><h1>Películas</h1><p class="intro">Organiza tu catálogo y registra cada cambio en el Event Manager.</p></div>
+        <button id="addMovie" class="button button-primary"><span>＋</span> Nueva película</button>
+      </section>
+
+      <section class="summary" aria-label="Resumen">
+        <article class="summary-card"><span>Películas en el catálogo</span><strong id="totalCount">—</strong></article>
+        <article class="summary-card"><span>Disponibles</span><strong id="availableCount">—</strong></article>
+        <article class="summary-card"><span>Eventos registrados</span><strong id="eventCount">—</strong></article>
+      </section>
+
+      <section class="catalog">
+        <div class="section-head"><div><h2>Mi catálogo</h2><p>La lista se reconstruye con los eventos guardados en el EPN Event Manager.</p></div></div>
+        <div class="toolbar">
+          <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar título o director" /></label>
+          <select id="availability" aria-label="Filtrar disponibilidad"><option value="all">Todas</option><option value="available">Disponibles</option><option value="unavailable">No disponibles</option></select>
+        </div>
+        <div class="table-shell"><table><thead><tr><th>Película</th><th>Género</th><th>Año</th><th>Duración</th><th>Estado</th><th></th></tr></thead><tbody id="movieRows"></tbody></table>
+          <div id="emptyState" class="empty-state" hidden><div class="empty-mark">✦</div><h3 id="emptyTitle">Todavía no hay películas</h3><p id="emptyMessage">Agrega la primera para iniciar tu catálogo.</p><button id="emptyAdd" class="button button-secondary">Agregar película</button></div>
+          <div id="loading" class="loading">Cargando los eventos del gestor…</div>
+        </div>
+      </section>
+
+      <section class="activity"><div class="activity-heading"><div><p class="eyebrow">HISTORIAL</p><h2>Actividad reciente</h2></div><span class="hub-label">Persistida en EPN Event Manager</span></div><div id="activityList" class="activity-list"></div></section>
+      <footer>Interfaz y proxy local · <span>Puerto 8082</span> · Los datos persistentes pertenecen al Event Manager.</footer>
+    </main>
+
+    <div id="dialog" class="dialog-backdrop" hidden>
+      <form id="movieForm" class="dialog" aria-labelledby="formTitle">
+        <div class="dialog-heading"><div><h2 id="formTitle">Nueva película</h2><p>Los datos se envían al Event Manager como evento.</p></div><button type="button" id="closeDialog" class="close" aria-label="Cerrar">×</button></div>
+        <label class="field full">Título<input name="titulo" maxlength="120" required placeholder="Ej. Interestelar" /></label>
+        <div class="field-grid">
+          <label class="field">Director<input name="director" maxlength="120" required placeholder="Christopher Nolan" /></label>
+          <label class="field">Género<input name="genero" maxlength="80" required placeholder="Ciencia ficción" /></label>
+          <label class="field">Año<input name="anio" type="number" min="1888" max="2031" required placeholder="2014" /></label>
+          <label class="field">Duración (min)<input name="duracion" type="number" min="1" max="1000" required placeholder="169" /></label>
+        </div>
+        <label class="field full">Disponibilidad<select name="disponible"><option value="true">Disponible</option><option value="false">No disponible</option></select></label>
+        <div class="dialog-actions"><button type="button" id="cancelDialog" class="button button-secondary">Cancelar</button><button id="saveMovie" class="button button-primary" type="submit">Guardar</button></div>
+      </form>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

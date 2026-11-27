@@ -1,0 +1,137 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --surface-2: #eef2f8;
+  --line: #dce3ed;
+  --text: #202b3b;
+  --muted: #66748a;
+  --accent: #d99132;
+  --green: #27834e;
+  --red: #bd5149;
+}
+
+body {
+  background: radial-gradient(ellipse at 82% -16%, #e3ebf7 0, transparent 36%), var(--bg);
+}
+
+.topbar {
+  background: #ffffffd9;
+  border-bottom-color: #dce3ed;
+}
+
+.brand-icon {
+  color: #33230f;
+}
+
+.button-primary:hover {
+  background: #e4a64f;
+}
+
+.button-secondary {
+  background: var(--surface-2);
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.button-secondary:hover {
+  background: #e3e9f2;
+}
+
+.summary-card {
+  background: linear-gradient(140deg, #ffffff, #f8faff);
+  box-shadow: 0 3px 12px #263b5910;
+}
+
+.search,
+select {
+  background: #ffffff;
+  color: var(--text);
+}
+
+.search input::placeholder {
+  color: #8995a8;
+}
+
+.table-shell {
+  background: #ffffff;
+  box-shadow: 0 4px 16px #263b590c;
+}
+
+th {
+  background: #f1f4f8;
+}
+
+td {
+  border-bottom-color: #e9edf3;
+}
+
+tbody tr:hover {
+  background: #f7f9fc;
+}
+
+.genre {
+  border-color: #d7dfeb;
+  color: #47566b;
+}
+
+.status {
+  color: #386449;
+}
+
+.status.off:before {
+  background: #9099a7;
+}
+
+.small-button {
+  background: #f1f4f8;
+  color: #344258;
+  border-color: #dce3ed;
+}
+
+.small-button:hover {
+  background: #e5eaf2;
+}
+
+.small-button.delete {
+  color: #ae453e;
+}
+
+.dialog-backdrop {
+  background: #1a263a70;
+}
+
+.dialog {
+  background: #ffffff;
+  border-color: #d6deea;
+  box-shadow: 0 25px 90px #2436502b;
+}
+
+.field {
+  color: #455267;
+}
+
+.field input,
+.field select {
+  background: #fbfcfe;
+  color: var(--text);
+  border-color: #dce3ed;
+}
+
+.field input:focus,
+.field select:focus,
+.search:focus-within {
+  border-color: #d39a4c;
+  box-shadow: 0 0 0 3px #d9913220;
+}
+
+.toast {
+  background: #ffffff;
+  border-color: #dce3ed;
+  color: var(--text);
+  box-shadow: 0 12px 35px #24365020;
+}
+
+.toast.error {
+  border-color: #d8938d;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "crud-gestion-peliculas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CRUD ligero de películas que registra sus eventos en EPN Event Manager",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
